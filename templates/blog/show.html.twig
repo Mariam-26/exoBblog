@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Blog{% endblock %}
+
+{% block body %}
+
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h1 class="display-3">{{article.title }}</h1>
+        <p class="lead">{{article.author}}</p>
+        <p>{{article.createAt | date('d-m-Y') }}</p>
+
+        <a href="{{ path('app_blog')}}" class="btn btn-dark">Retour aux articles</a>
+        <!-- Pour trouver le nom de notre page, il suffit d'aller sur le Controller correspondant et dans la ligne de la  Routeà l'endroit : name="nomRoute" -->
+
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-8 mx-auto">
+
+            {{article.content | raw}}
+<!-- Le mot raw signifie que le PHP doit lire les balises et non pas les traiter comme du texte . -->
+            <figure class="text-center">
+
+                <img src="{{article.image}}" alt="Illustration de l'article {{article.title}}">
+
+            </figure>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}
