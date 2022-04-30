@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}
+	Ajouter un article
+{% endblock %}
+
+
+{% block body %}
+
+	<div class="p-5 bg-light">
+		<div class="container">
+			<h1 class="display-3">Blog Dominique
+			</h1>
+
+			<p class="lead ">
+				{% if modeEdit %}
+					Modifier un article
+				{% else %}
+
+					Ajouter un article
+				{% endif %}
+
+			</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+		<div class="p-5 shadow rouded">
+
+			{{form_start(form, {'attr' : {'class' : 'col-md-8 mx-auto text-primary fw-bolder'}})}}
+			{{form_row(form.title, {'attr': {'placeholder' : 'Titre de l\'article'}, 'label' : 'Titre'})}}
+            {{form_row(form.content, {'attr': {'label' : 'Contenu'}})}}
+            {{form_row(form.image, {'attr': {'placeholder' : 'URL de l\'image'}, 'label' : 'Image'})}}
+			{{form_row(form.author, {'attr': {'placeholder' : 'Auteur de l\'article'}, 'label' : 'Auteur'})}}
+	 		{# {{form_row(form.submit,{'attr':{'class':'btn btn-primary'}})}} #}
+<button type="submit" class="btn btn-primary">AJOUTER L'ARTICLE</button>
+			{{form_end(form)}}
+
+
+		</div>
+
+
+	</div>
+
+
+{% endblock %}
